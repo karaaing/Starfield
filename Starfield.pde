@@ -54,14 +54,14 @@ class OddballParticle {
   
   void move() {
     if(mouseX > myX) {
-      myX = myX + (int)(Math.random()*7) - 1;
+      myX = myX + (int)(Math.random()*5) - 1;
     } else {
-      myX = myX + (int)(Math.random()*7) - 3;
+      myX = myX + (int)(Math.random()*5) - 3;
     }
     if(mouseY > myY) {
-      myY = myY + (int)(Math.random()*7) - 1;
+      myY = myY + (int)(Math.random()*5) - 1;
     } else {
-      myY = myY + (int)(Math.random()*7) - 3;
+      myY = myY + (int)(Math.random()*5) - 3;
     }
   }
   
