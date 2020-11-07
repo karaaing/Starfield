@@ -1,20 +1,73 @@
-//your code here
+Particle[] Boo;
+OddballParticle Moo;
+
 void setup()
 {
-	//your code here
+  size(500,500);
+  Boo = new Particle[200];
+  for(int i = 0; i < Boo.length; i++) {
+    Boo[i] = new Particle();
+    Boo[i].angle();
+    Boo[i].speed();
+  }
+  Moo = new OddballParticle();
 }
+
 void draw()
 {
-	//your code here
+  background(48, 48, 64);
+  for(int i = 0; i < Boo.length; i++) {
+    Boo[i].move();
+    Boo[i].show();
+  }
+  Moo.move();
+  Moo.show();
 }
+
 class Particle
 {
-	//your code here
+  double myX, myY, myAngle, mySpeed;
+  Particle() {
+    myX = myY = 250;
+  }
+  void angle() {
+    myAngle = Math.random() * 2 * Math.PI;
+  }
+  void speed() {
+    mySpeed = Math.random() * 7;
+  }
+  void move() { 
+    myX = myX + Math.cos(myAngle) * mySpeed;
+    myY = myY + Math.sin(myAngle) * mySpeed;
+  }
+  void show() {
+    fill(255);
+    ellipse((float)myX, (float)myY, 7, 7);
+  }
 }
 
-class OddballParticle //inherits from Particle
-{
-	//your code here
+class OddballParticle {
+  int myX, myY, num;
+  OddballParticle() {
+    myX = myY = 250;
+  }
+  
+  void move() {
+    if(mouseX > myX) {
+      myX = myX + (int)(Math.random()*7) - 1;
+    } else {
+      myX = myX + (int)(Math.random()*7) - 3;
+    }
+    if(mouseY > myY) {
+      myY = myY + (int)(Math.random()*7) - 1;
+    } else {
+      myY = myY + (int)(Math.random()*7) - 3;
+    }
+  }
+  
+  void show() {
+    fill(196, 255, 202);
+    ellipse(myX, myY, 15, 15);
+  }
 }
-
 
